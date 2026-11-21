@@ -1,0 +1,26 @@
+[
+    {
+        "provider": "gemini",
+        "model": "gemini-3.8-flash",
+        "reply": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "seconds": 27.576,
+        "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "input_price_per_m": 0.3,
+        "output_price_per_m": 2.5,
+        "cost_usd": null
+    },
+    {
+        "provider": "groq",
+        "model": "llama-3.3-70b-versatile",
+        "reply": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "seconds": 0.434,
+        "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}",
+        "input_price_per_m": 0.59,
+        "output_price_per_m": 0.79,
+        "cost_usd": null
+    }
+]
