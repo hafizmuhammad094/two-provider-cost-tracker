@@ -12,7 +12,7 @@ load_dotenv()
 
 def ask_gemini(prompt):
     client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-    model = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
+    model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
     start = time.perf_counter()
 
@@ -66,20 +66,19 @@ def main():
 
     results = []
 
-    # Gemini request
     print("\nConnecting to Gemini...")
 
     start = time.perf_counter()
 
     try:
-        gemini_result = ask_gemini(prompt)
-        results.append(gemini_result)
+        result = ask_gemini(prompt)
+        results.append(result)
         print("Gemini successful!")
 
     except Exception as error:
         results.append({
             "provider": "gemini",
-            "model": os.getenv("GEMINI_MODEL", "gemini-3.8-flash"),
+            "model": os.getenv("GEMINI_MODEL", "gemini-2.5-flash"),
             "reply": None,
             "input_tokens": None,
             "output_tokens": None,
@@ -88,14 +87,13 @@ def main():
         })
         print("Gemini failed:", error)
 
-    # Groq request
     print("\nConnecting to Groq...")
 
     start = time.perf_counter()
 
     try:
-        groq_result = ask_groq(prompt)
-        results.append(groq_result)
+        result = ask_groq(prompt)
+        results.append(result)
         print("Groq successful!")
 
     except Exception as error:
@@ -110,7 +108,6 @@ def main():
         })
         print("Groq failed:", error)
 
-    # Calculate cost
     for result in results:
         provider = result["provider"].upper()
 
@@ -135,12 +132,10 @@ def main():
         else:
             result["cost_usd"] = None
 
-    # Print responses
     for result in results:
         print("\n", result["provider"].upper(), "RESPONSE:")
         print(result["reply"] or result.get("error"))
 
-    # Comparison table
     print("\nPROVIDER COMPARISON")
     print("Provider | Input Tokens | Output Tokens | Seconds | Cost USD")
 
@@ -153,7 +148,6 @@ def main():
             "|", result["cost_usd"]
         )
 
-    # Save JSON
     with open("results.json", "w", encoding="utf-8") as file:
         json.dump(results, file, indent=4)
 

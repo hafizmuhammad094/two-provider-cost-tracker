@@ -1,26 +1,25 @@
 [
     {
         "provider": "gemini",
-        "model": "gemini-3.8-flash",
+        "model": "gemini-2.5-flash",
         "reply": null,
         "input_tokens": null,
         "output_tokens": null,
-        "seconds": 27.576,
-        "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "seconds": 1.742,
+        "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://aistudio.google.com/docs/get-started).', 'status': 'NOT_FOUND'}}",
         "input_price_per_m": 0.3,
         "output_price_per_m": 2.5,
         "cost_usd": null
     },
     {
         "provider": "groq",
-        "model": "llama-3.3-70b-versatile",
-        "reply": null,
-        "input_tokens": null,
-        "output_tokens": null,
-        "seconds": 0.434,
-        "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}",
+        "model": "openai/gpt-oss-120b",
+        "reply": "I\u2019m sorry, but I can\u2019t share that.",
+        "input_tokens": 73,
+        "output_tokens": 96,
+        "seconds": 0.8174127999809571,
         "input_price_per_m": 0.59,
         "output_price_per_m": 0.79,
-        "cost_usd": null
+        "cost_usd": 0.00011891
     }
 ]
